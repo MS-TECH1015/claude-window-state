@@ -1,0 +1,3 @@
+hooks/**
+*.vsix
+.git/**

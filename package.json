@@ -1,0 +1,42 @@
+{
+  "name": "claude-window-state",
+  "displayName": "Claude Window State",
+  "description": "Claude Code の窓を並べて使うとき、判断が要る窓を色で見せ、離れる・着くときの思い出す負担を減らす",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "claudeWindowState.leaveMemo",
+        "title": "Claude Window State: この窓を離れる前のメモ"
+      },
+      {
+        "command": "claudeWindowState.pickWaiting",
+        "title": "Claude Window State: 判断待ちの窓へ移る"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "claudeWindowState.leaveMemo",
+        "key": "ctrl+alt+m",
+        "when": "terminalFocus"
+      },
+      {
+        "command": "claudeWindowState.pickWaiting",
+        "key": "ctrl+alt+j"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MS-TECH1015/claude-window-state"
+  }
+}
