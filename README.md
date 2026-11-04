@@ -45,11 +45,13 @@ Windows 11 と Cursor で確かめた。パスは置いた場所に合わせて�
 "Notification":     [{ "matcher": "permission_prompt|elicitation_dialog", "hooks": [{ "type": "command", "command": "python \"C:/dev/claude-window-state/hooks/window_state.py\"" }] }]
 ```
 
-2. ステータスラインの色札を出すなら、`statusLine` に `"refreshInterval": 5` を足し、ステータスラインのスクリプトの先頭に次の出力を足す
+2. ステータスラインの色札を出すなら、ステータスラインのスクリプトの先頭に次の出力を足す
 
 ```bash
 badge=$(printf '%s' "$input" | python "C:/dev/claude-window-state/hooks/statusline_badge.py")
 ```
+
+   `statusLine` の `refreshInterval` は入れない。窓1本ごとに数秒おきに python が起動し、窓を5本以上並べると PC が重くなって、ステータスラインが時間切れで空になった。既にステータスラインで python を使っているなら、別に起動せず、その中で `~/.claude/window_state/<session_id>.json` の `state` を読むほうが軽い
 
 3. 拡張を入れる
 

@@ -6,8 +6,8 @@
 ステータスラインの JSON を標準入力で受け、window_state.py が書いた状態ファイルを読んで、
 ANSI の背景色つきの札を1つ出力する。状態ファイルが無ければ何も出さない。
 
-ステータスラインはイベントのたびにしか描き直されないので、settings.json の statusLine に
-"refreshInterval": 5 を足して、返事が終わった直後の色の変化も拾う。
+settings.json の statusLine に refreshInterval は入れない。窓の数だけ数秒おきに python が起動し、
+窓を5本以上並べると PC が重くなって、ステータスラインが時間切れで空になった。
 """
 import json
 import sys
